@@ -1,0 +1,332 @@
+table {
+  border: 1px solid black;
+  width: 100%;
+  height: 150%;
+  table-layout: fixed;
+  background-image: url("astronomy-1867616_1280.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.background {
+  background-position: 100% 100%;
+}
+
+.show-background {
+  background-position: 0% 0%;
+}
+
+td,
+th {
+  height: 80px;
+  color: white;
+  font: bold;
+  font-size: 30px;
+  background-color: #78a2cc;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  /* background-image: linear-gradient(
+    90deg,
+    rgb(67, 117, 210) 11%,
+    rgb(192, 50, 170) 69%
+  );*/
+  background-image: url(background_mauer.jpg);
+}
+
+td {
+  text-align: center;
+}
+
+th {
+  color: black;
+}
+
+.surround {
+  display: flex;
+  flex-direction: row;
+}
+
+#spielstand {
+  margin-left: 40px;
+}
+
+h1 {
+  color: white;
+  font-family: "Nabla", cursive;
+  font-size: 60px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+
+.ungeklickt {
+  color: #ff8000;
+  text-decoration: none;
+}
+
+.clicked {
+  background-color: transparent;
+  visibility: hidden;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid white;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  padding: 2px 16px;
+  background-color: #78a2cc;
+  color: white;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 2px 16px;
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 7px 16px 2px 16px;
+  background-color: white;
+  color: white;
+  height: 60px;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #78a2cc;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  margin: 15% auto; /* 15% from the top and centered */
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.nebeneinander {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+#team1Punkte,
+#team2Punkte,
+#team3Punkte {
+  margin-left: 7px;
+}
+
+#currentPlayer {
+  margin-bottom: 150px;
+}
+
+#tafel {
+  font-size: 20px;
+  padding: 15px;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.rund {
+  position: absolute; /* Stellt das Bild auf "position: absolute", um es innerhalb des Containers zu positionieren */
+  top: 0;
+  left: 0;
+  width: 100%; /* Skaliert das Bild auf die volle Breite des Containers */
+  height: auto; /* Passt die Höhe des Bildes an, um das Seitenverhältnis beizubehalten */
+}
+
+#t1 {
+  border-radius: 50%;
+  border: 5px solid #ef37e7;
+}
+
+#t2 {
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+#t3 {
+  border-radius: 50%;
+  border: 5px solid white;
+}
+.bild-container {
+  width: 90px; /* Breite des Bildcontainers */
+  height: 90px; /* Höhe des Bildcontainers */
+  overflow: hidden; /* Verhindert, dass das Bild aus dem Container ausbricht */
+  position: relative; /* Stellt den Container auf "position: relative", um das Bild zu positionieren */
+  border-radius: 50%;
+  border: 5px solid white;
+  background-color: #78a2cc;
+}
+
+.teamname {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+#team1Punkte,
+#team2Punkte,
+#team3Punkte {
+  margin-top: 5px;
+}
+
+#team1,
+#team2,
+#team3,
+#buttonRichtig,
+#buttonFalsch,
+#auswerten {
+  background-color: #78a2cc;
+  border: 2px #cccccc;
+  color: #eeeeee;
+  text-align: center;
+  width: 100px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  height: 30px;
+}
+
+#who {
+  color: red;
+  font: bold;
+  margin-left: 475px;
+  margin-top: 25px;
+  width: 10%;
+}
+
+#closeButton {
+  padding-left: 50px;
+  margin-block-start: 0.6em;
+  width: 10%;
+}
+
+#headerModal {
+  width: 80%;
+}
+
+#buttonbox {
+  margin-top: 15px;
+  padding: 0px;
+  height: 100%;
+}
+
+input {
+  height: 27px;
+}
+
+.tippbutton {
+  border: 1px solid #78a2cc !important;
+  height: 27px;
+}
+
+#winner {
+  display: none;
+  height: 700px;
+}
+
+#podium {
+  position: absolute;
+  top: 240px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 300px;
+}
+
+.modal-bodyWinner {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.containerImg {
+  display: flex;
+  flex-direction: row;
+}
+
+#platzierung {
+  margin-top: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.platzierung {
+  width: 135px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table,
+th,
+td {
+  border: 3px solid white;
+}
+
+table {
+  border-collapse: collapse;
+}

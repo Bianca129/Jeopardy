@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jeopardy</title>
+    <link rel="stylesheet" href="jeopardy.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nabla&family=Roboto:wght@700&display=swap");
+    </style>
+  </head>
+  <body>
+    <!-- <h1>JEOPARDY</h1> -->
+    <div id="tafel">
+      <div class="nebeneinander">
+        <div id="t1" class="bild-container" onclick="namenVergeben(this)">
+          <img class="rund" src="team1.png"  id="1"/>
+        </div>
+        <p class="teamname" id="setTeam1">Team 1</p>
+        <p id="team1Punkte">0</p>
+      </div>
+
+      <div class="nebeneinander">
+        <div class="bild-container" onclick="namenVergeben(this)" id="t2">
+          <img class="rund" src="team2.png"  id="2"/>
+        </div>
+        <p class="teamname" id="setTeam2">Team 2</p>
+        <p id="team2Punkte">0</p>
+      </div>
+
+      <div class="nebeneinander">
+        <div class="bild-container" id="t3" onclick="namenVergeben(this)">
+          <img class="rund" src="team3.png" id="3" />
+        </div>
+        <p class="teamname" id="setTeam3">Team 3</p>
+        <p id="team3Punkte">0</p>
+      </div>
+    </div>
+    <div class="surround">
+      <table id="spielplan">
+        <tr>
+          <th>Tiere</th>
+          <th>Europa</th>
+          <th>Sport</th>
+          <th>Allgemein</th>
+          <th>Essen und Trinken</th>
+          <th>Schätzen</th>
+        </tr>
+        <tr>
+          <td class="200 background" id="k1/200" onclick="ausblenden(this)">
+            200
+          </td>
+          <td class="200" id="k2/200" onclick="ausblenden(this)">200</td>
+          <td class="200" id="k3/200" onclick="ausblenden(this)">200</td>
+          <td class="200" id="k4/200" onclick="ausblenden(this)">200</td>
+          <td class="200" id="k5/200" onclick="ausblenden(this)">200</td>
+          <td class="200" id="k6/200" onclick="ausblenden(this)">200</td>
+        </tr>
+        <tr>
+          <td class="400" id="k1/400" onclick="ausblenden(this)">400</td>
+          <td class="400" id="k2/400" onclick="ausblenden(this)">400</td>
+          <td class="400" id="k3/400" onclick="ausblenden(this)">400</td>
+          <td class="400" id="k4/400" onclick="ausblenden(this)">400</td>
+          <td class="400" id="k5/400" onclick="ausblenden(this)">400</td>
+          <td class="400" id="k6/400" onclick="ausblenden(this)">400</td>
+        </tr>
+        <tr>
+          <td class="600" id="k1/600" onclick="ausblenden(this)">600</td>
+          <td class="600" id="k2/600" onclick="ausblenden(this)">600</td>
+          <td class="600" id="k3/600" onclick="ausblenden(this)">600</td>
+          <td class="600" id="k4/600" onclick="ausblenden(this)">600</td>
+          <td class="600" id="k5/600" onclick="ausblenden(this)">600</td>
+          <td class="600" id="k6/600" onclick="ausblenden(this)">600</td>
+        </tr>
+        <tr>
+          <td class="800" id="k1/800" onclick="ausblenden(this)">800</td>
+          <td class="800" id="k2/800" onclick="ausblenden(this)">800</td>
+          <td class="800" id="k3/800" onclick="ausblenden(this)">800</td>
+          <td class="800" id="k4/800" onclick="ausblenden(this)">800</td>
+          <td class="800" id="k5/800" onclick="ausblenden(this)">800</td>
+          <td class="800" id="k6/800" onclick="ausblenden(this)">800</td>
+        </tr>
+        <tr>
+          <td class="1000" id="k1/1000" onclick="ausblenden(this)">1000</td>
+          <td class="1000" id="k2/1000" onclick="ausblenden(this)">1000</td>
+          <td class="1000" id="k3/1000" onclick="ausblenden(this)">1000</td>
+          <td class="1000" id="k4/1000" onclick="ausblenden(this)">1000</td>
+          <td class="1000" id="k5/1000" onclick="ausblenden(this)">1000</td>
+          <td class="1000" id="k6/1000" onclick="ausblenden(this)">1000</td>
+        </tr>
+      </table>
+
+      <!--    <div id="spielstand">
+      <p id="currentPlayer">Team 1 ist an der Reihe</p>
+    </div>-->
+    </div>
+
+    <!-- <button id="myBtn">Open Modal</button> -->
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h2 id="headerModal">Modal Header</h2>
+
+          <p id="who"></p>
+          <span class="close" hidden id="closeButton">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p id="questionModal"></p>
+          <p id="answerModal"></p>          
+        </div>
+        <div class="modal-footer" id="footer">
+          <div id="buttonbox">
+              <button
+                type="button"
+                hidden
+                class="footerButton"
+                id="buttonFalsch"
+                onclick="changePlayer()"
+              >
+                falsch
+              </button>
+              <button
+                type="button "
+                hidden
+                class="footerButton"
+                id="buttonRichtig"
+                onclick="getPunkte()"
+              >
+                richtig
+              </button>
+              <button
+                type="button"
+                class="footerButton"
+                id="team1"
+                onclick="setTeam(this)"
+              >
+                Team 1
+              </button>
+              <input type="text" placeholder="Tipp Team 1" id="tipp1" class="tippbutton" hidden>
+              <button
+                type="button"
+                class="footerButton"
+                id="team2"
+                onclick="setTeam(this)"
+              >
+                Team 2
+              </button>
+              <input type="text" placeholder="Tipp Team 2" id="tipp2" class="tippbutton" hidden>
+              <button
+                type="button"
+                class="footerButton"
+                id="team3"
+                onclick="setTeam(this)"
+              >
+                Team 3
+              </button>
+              <input type="text" placeholder="Tipp Team 3" id="tipp3" class="tippbutton" hidden>
+              <input type="number" hidden id="PunktzahlFrage" />
+              <button type="button" id="auswerten" hidden onclick="checkAntworten()">auswerten</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div id="winner" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+              <h2 id="headerModal">Uuuund gewonnen hat....</h2>
+              <span class="close" hidden id="closeButton">&times;</span>
+        </div>
+        <div class="modal-bodyWinner">
+              
+              
+              <div class="containerImg">
+                <img id="podium" src="podium.png">
+              </div>
+              <div class="containerImg" id="platzierung">
+                <p id="zweiter" class="platzierung"></p>
+                <p id="erster" class="platzierung"></p>
+                <p id="dritter" class="platzierung"></p>
+              </div>
+
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+
+    <!-- <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Modal Header</h2>
+    </div>
+    <div class="modal-body">
+      <p>Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+    <div class="modal-footer">
+      <h3>Modal Footer</h3>
+    </div>
+  </div> -->
+  </body>
+  <script src="Team.js"></script>
+  <script src="question.js"></script>
+  <script src="jeopardy.js"></script>
+</html>
